@@ -12,12 +12,21 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Important Dates
 
-- 10/17/2019 at 5:30 PM: Teams and datasets are chosen.
-- 11/19/2019 at 5:30 PM: Progress report due.
-- 12/10/2019 at 5:30 PM: Shiny apps due.
-- 12/10/2019 from 5:30 PM to 8:00 PM (final exam period): Project presentations.
+- Tuesday Section Important Dates:
+    - 03/06/2020 at 5:30 PM: Teams and datasets are chosen.
+    - 04/17/2020 at 11:59 PM: Progress report due.
+    - 05/05/2020 at 5:30 PM: Shiny apps due.
+    - 05/05/2020 from 5:30 PM to 8:00 PM (final exam period): Project presentations.
+
+- Thursday Section Important Dates:
+    - 03/06/2020 at 5:30 PM: Teams and datasets are chosen.
+    - 04/17/2020 at 11:59 PM: Progress report due.
+    - 04/30/2020 at 5:30 PM: Shiny apps due.
+    - 04/30/2020 from 5:30 PM to 8:00 PM (final exam period): Project presentations.
 
 # Grade Breakdown
+
+50 pts total:
 
 - (5 pts) Team and data selection.
 - (5 pts) Progress report.
@@ -177,6 +186,9 @@ Your Shiny app should contain all of the following elements:
   regressions, ANOVA, etc).
 - Interactive graphics.
 - Modified HTML elements.
+- You should not be doing intensive data cleaning inside your shiny app. 
+  Your shiny app should use cleaned datasets that were cleaned by scripts in
+  your analysis folder.
 
 # (10 pts) Presentation
 
