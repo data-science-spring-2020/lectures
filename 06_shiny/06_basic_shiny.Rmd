@@ -698,7 +698,8 @@ klippy::klippy()
 - In the `server()` function, notice that we set the outputs to the `output()`
   variable.
   
-- Notice that I used `!!` in front of `input$var1` and `input$var2`. You have
+- Notice that I used `!!` in front of `input$var1` and `input$var2`. This
+  is called the "bang-bang operator" and you have
   to do this to use variable names in the tidyverse (ggplot, dplyr, tidyr, etc).
 
 - The `!!` is only necessary if you are requesting the names of variables 
@@ -728,7 +729,40 @@ klippy::klippy()
     
     shinyApp(ui = ui, server = server)
     ```
+    
+## Alternative pipeline to `!!`
 
+- This content is from Chapter 11 of [Mastering Shiny](https://mastering-shiny.org/).
 
+- If you use `varSelectInput()`, you need to use `!!`.
 
+- But you can use `selectInput()` for variable selection, in which case you
+  can use the `.data` object.
+  
+    ```{r, eval = FALSE, echo = TRUE}
+    library(shiny)
+    library(ggplot2)
+    
+    ui <- fluidPage(
+        selectInput("var1", "Variable 1", choices = names(mtcars)),
+        selectInput("var2", "Variable 2", choices = names(mtcars)),
+        plotOutput("plot")
+    )
+    
+    server <- function(input, output) {
+        output$plot <- renderPlot({
+            ggplot(mtcars, aes(x = .data[[input$var1]], y = .data[[input$var2]])) +
+                geom_point()
+        })
+    }
+    
+    shinyApp(ui = ui, server = server)
+    ```
+
+- Compare UI:
+  - Way 1: `varSelectInput("var1", "Variable 1", data = mtcars)`
+  - Way 2: `selectInput("var1", "Variable 1", choices = names(mtcars))`
+- Compare Server:
+  - Way 1: `x = !!input$var1`
+  - Way 2: `x = .data[[input$var1]]`
 
